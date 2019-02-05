@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+    volumes:
+      - "./volumes/data:/root/.ethereum"
+      - "./volumes/credentials:/go/go-pal/datadir"
+    tty: true
