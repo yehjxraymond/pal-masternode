@@ -20,9 +20,11 @@ RUN cd go-pal \
 # Copy .env file with masternode address into app
 COPY ./fixtures/.env $GOPATH/go-pal
 
-# Need to mount volume for chaindata at ~/.ethereum and account stuffs in go-pal/datadir
+# Need to mount volume for chaindata and credentials in go-pal/datadir
 # CP .env file (not secret)
-# EXPOSE 8545 8546 30303 30303/udp
-RUN /bin/bash
-# RUN cd go-pal \
-#  && make node 2>/root/go-pal.log
+EXPOSE 8545 8546 30303 30303/udp
+WORKDIR go-pal
+
+# RUN pwd
+# RUN ls -l
+# RUN make node 2>/root/go-pal.log
