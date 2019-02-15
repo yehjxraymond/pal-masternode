@@ -7,8 +7,8 @@ services:
       - "8546:8546"
       - "30303:30303"
     volumes:
-      - "./volumes/log:/log"
-      - "./volumes/credentials:/go/go-pal/datadir"
+      - "~/data/log:/log"
+      - "~/data/credentials:/go/go-pal/datadir"
     command: ["make", "node"]
     devices:
       - "/dev/net/tun:/dev/net/tun"
