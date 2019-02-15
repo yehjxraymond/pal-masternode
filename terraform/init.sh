@@ -22,3 +22,4 @@ sudo chown ubuntu ~/data
 # Clone pal repo
 git clone https://github.com/yehjxraymond/pal-masternode.git
 cd pal-masternode
+docker-compose up -d
