@@ -1,2 +1,6 @@
 volumes
-
+*.tfvars
+*.tfstate
+*.tfstate.backup
+aws_hosts
+terraform/.terraform
