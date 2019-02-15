@@ -137,6 +137,17 @@ resource "aws_instance" "pal_node" {
   vpc_security_group_ids = ["${aws_security_group.pal_node_sg.id}"]
   subnet_id              = "${aws_subnet.pal_public_subnet.id}"
 
+  connection {
+    type        = "ssh"
+    agent       = "false"
+    private_key = "${file(var.private_key_path)}"
+    user        = "ubuntu"
+  }
+
+  provisioner "remote-exec" {
+    script = "./init.sh"
+  }
+
   provisioner "local-exec" {
     command = <<EOD
 cat <<EOF > aws_hosts 

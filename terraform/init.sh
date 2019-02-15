@@ -15,11 +15,26 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Mount disk volumne
 # sudo mkfs -t xfs /dev/nvme1n1
-mkdir ~/data
+mkdir ~/data1
 sudo mount /dev/nvme1n1 ~/data
 sudo chown ubuntu ~/data
 
 # Clone pal repo
 git clone https://github.com/yehjxraymond/pal-masternode.git
 cd pal-masternode
-docker-compose up -d
+
+# Create service
+
+sudo bash -c "echo \"
+[Unit]
+Description=Spark service
+
+[Service]
+ExecStart=/home/ubuntu/pal-masternode/start.sh
+
+[Install]
+WantedBy=multi-user.target
+\" >> /etc/systemd/system/go-pal.service"
+
+
+sudo docker-compose up -d
