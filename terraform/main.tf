@@ -158,6 +158,12 @@ EOD
   }
 }
 
+# Elastic IP
+resource "aws_eip" "eip1" {
+  instance = "${aws_instance.pal_node.id}"
+  vpc      = false
+}
+
 # EBS Attachment
 resource "aws_volume_attachment" "ebs_att" {
   device_name = "/dev/sdf"

@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "STARTED" > ~/init
 sudo apt -y update
 
 # Install docker
@@ -25,16 +24,16 @@ cd pal-masternode
 
 # Create service
 
-sudo bash -c "echo \"
-[Unit]
-Description=Spark service
+# sudo bash -c "echo \"
+# [Unit]
+# Description=Spark service
 
-[Service]
-ExecStart=/home/ubuntu/pal-masternode/start.sh
+# [Service]
+# ExecStart=/home/ubuntu/pal-masternode/start.sh
 
-[Install]
-WantedBy=multi-user.target
-\" >> /etc/systemd/system/go-pal.service"
+# [Install]
+# WantedBy=multi-user.target
+# \" >> /etc/systemd/system/go-pal.service"
 
 
-sudo docker-compose up -d
+# sudo docker-compose up -d
